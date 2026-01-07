@@ -3,7 +3,6 @@
 
 export class TodoList {
   #tasksArr = [];
-  // #nextIdCounter = 0;
 
   addTask(description) {
     if (!description || typeof description !== "string") {
@@ -22,12 +21,14 @@ export class TodoList {
   }
 
   completeTask(id) {
-    if (!id || id !== "number") {
+    if (!id) {
       throw new Error("Invalid argument/ missing argument");
     }
     const check = this.#tasksArr.findIndex((todo) => todo.id == id);
-    if (!check) {
-      throw new Error("Todo not found");
+    console.log(check);
+    
+    if (check == -1) {
+      throw new Error("Id not found ");
     }
     this.#tasksArr[check].completed = true;
     return true;
@@ -38,7 +39,6 @@ export class TodoList {
       throw new Error("Invalid argument/ missing argument");
     }
     const check = this.#tasksArr.findIndex((todo) => todo.id == id);
-    console.log(check);
     if (check == -1) {
       throw new Error("Todo not found");
     }
@@ -47,8 +47,14 @@ export class TodoList {
   }
 
   getTask(id) {
-    // TODO: Implement getting a specific task by id
-    // Return null if not found
+    if (!id) {
+      throw new Error("Invalid argument/ missing argument");
+    }
+    const check = this.#tasksArr.findIndex((todo) => todo.id == id);
+    if (check == -1) {
+      throw new Error( "Todo not found" );
+    }
+    return { message: "Todo found", data: this.#tasksArr[check] };
   }
 
   getAllTasks() {
@@ -77,3 +83,17 @@ export class TodoList {
     // TODO: Implement getting incomplete task count
   }
 }
+
+
+
+// const toto   = new TodoList()
+// toto.addTask("clean the room")
+// toto.addTask("go to shooping")
+// toto.addTask("wash the dishe")
+
+
+// console.log(toto.getAllTasks())
+
+// console.log(toto.completeTask(88))
+
+// console.log(toto.getTask(2))

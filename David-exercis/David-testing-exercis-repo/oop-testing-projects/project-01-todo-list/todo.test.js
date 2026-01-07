@@ -22,9 +22,9 @@ test("should create an empty todo list", () => {
     },
   ]);
 });
-test("if not given an argument", () => {
-  assert.throws(() => todo.addTask());
-});
+// test("if not given an argument", () => {
+//   assert.throws(() => todo.addTask());
+// });
 
 // // ===========================================
 // // Test: Add Tasks
@@ -39,21 +39,23 @@ test("if not given an argument", () => {
 //   // TODO: Add multiple tasks and verify each has a unique ID
 // });
 
-// test('should throw error for empty description', () => {
-//   // TODO: Test that empty descriptions throw an error
-//   // Hint: Use assert.throws()
-// });
+test("should throw error for empty description", () => {
+  assert.throws(() => todo.addTask());
+});
 
 // // ===========================================
 // // Test: Complete Tasks
 // // ===========================================
 
-test("should complete a task", () => {
-  const complete = new TodoList();
-});
+// test("should complete a task", () => {
+//   assert.throws(() => todo.completeTask(2))
+// });
 
 test("should return false when completing non-existent task", () => {
-  // TODO: Try to complete a task that doesn't exist
+  assert.throws(() => todo.completeTask());
+});
+test("should return false when completing non-existent task", () => {
+  assert.strictEqual(todo.completeTask(1), true);
 });
 
 // // ===========================================
