@@ -25,8 +25,6 @@ test("should create an empty todo list", () => {
 test("if not given an argument", () => {
   assert.throws(() => todo.addTask());
 });
-// why this is work amd dont fale
-// I did the error on comma in the methode!!!!!!
 
 // // ===========================================
 // // Test: Add Tasks

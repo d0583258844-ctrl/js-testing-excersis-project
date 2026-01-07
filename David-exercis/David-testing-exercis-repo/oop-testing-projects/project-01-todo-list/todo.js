@@ -30,11 +30,20 @@ export class TodoList {
       throw new Error("Todo not found");
     }
     this.#tasksArr[check].completed = true;
+    return true;
   }
 
   removeTask(id) {
-    // TODO: Implement removing a task
-    // Return true if successful, false if task not found
+    if (!id) {
+      throw new Error("Invalid argument/ missing argument");
+    }
+    const check = this.#tasksArr.findIndex((todo) => todo.id == id);
+    console.log(check);
+    if (check == -1) {
+      throw new Error("Todo not found");
+    }
+    this.#tasksArr.splice(check, 1);
+    return true;
   }
 
   getTask(id) {
@@ -68,9 +77,3 @@ export class TodoList {
     // TODO: Implement getting incomplete task count
   }
 }
-
-// const toto = new TodoList();
-// toto.addTask("clean the room");
-
-// toto.addTask("clean the room-2");
-// console.log(toto.getAllTasks());
