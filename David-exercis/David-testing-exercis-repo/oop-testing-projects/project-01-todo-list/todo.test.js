@@ -9,13 +9,24 @@ import { TodoList } from "./todo.js";
 // // Test: Create Todo List
 // // ===========================================
 
+const todo = new TodoList();
+todo.addTask("clean the room");
+
 test("should create an empty todo list", () => {
-  const todo = new TodoList();
-  assert.deepEqual(todo.getAllTasks(), []);
+  assert.deepStrictEqual(todo.getAllTasks(), [
+    {
+      id: 1,
+      description: "clean the room",
+      completed: false,
+      createdAt: todo.getAllTasks()[0].createdAt,
+    },
+  ]);
 });
 test("if not given an argument", () => {
   assert.throws(() => todo.addTask());
 });
+// why this is work amd dont fale
+// I did the error on comma in the methode!!!!!!
 
 // // ===========================================
 // // Test: Add Tasks
@@ -39,13 +50,13 @@ test("if not given an argument", () => {
 // // Test: Complete Tasks
 // // ===========================================
 
-// test('should complete a task', () => {
-//   // TODO: Add a task, complete it, and verify completed = true
-// });
+test("should complete a task", () => {
+  const complete = new TodoList();
+});
 
-// test('should return false when completing non-existent task', () => {
-//   // TODO: Try to complete a task that doesn't exist
-// });
+test("should return false when completing non-existent task", () => {
+  // TODO: Try to complete a task that doesn't exist
+});
 
 // // ===========================================
 // // Test: Remove Tasks
